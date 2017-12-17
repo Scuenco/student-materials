@@ -1,46 +1,82 @@
-# Title
+# Fulfillment and Distribution System
 
 ## Executive Summary
 
-*Your executive summary should be pretty brief, under 3 paragraphs and should provide a concise summary of the purpose and contents of the rest of the document.  Explain to the reader what they will get from this document.*
+Fulfillment and Distribution System is an application catered to businesses for product fulfillment and distribution.
 
 ## Business Objectives
 
-*Business objectives should offer the details for why the project is important.  Outline the goals of the project int he sense of the value it will bring and set expectations.  Keep your objectives measurable to avoid confusion in whether or not they have been met.*
+The objective of this application is to provide the ability to automate processes for fulfillment and distribution.  This reduces errors, delays and overhead costs.
 
 ## Background
 
-*Provide any relevant background information regarding why this project is being initiated*
+This application is will benefit our client because currently the client has no manpower to process and fulfill from packaging to shipping their products to their customers. 
 
 ## Scope
 
-*The Scope section should outline what is and is not included as part of this project.  Oftentimes we make assumptions of features or functionality that is not necessarily required.  This is especially useful in a phased approach or when working on an existing system.*
+The scope of the application must have the ability to:
+  Import the files 
+  Process the information to the Fulfillment System
+  Merge the documents using a word processing software
+  Generate the print files
 
 ## Functional requirements
 
-*This is where most of the detail should reside.  describe all of the required capabilities of the system in detail.  It is helpful to articulate features in terms of user capabilities.  Keep in mind that the features will be designed and developed off of these descriptions, so if you leave anything up to interpretation, you run the risk of the results not meeting your expectations.  You can also assume capabilities that are not mentioned here will not be included in the project, no matter how common or obvious they are.  You may want to break our subsections for each major feature to make the document more organized.*
+#### Import the files 
 
+This process takes the import files from the client's site and transfers data to the local database. It is then ready for processing into the Fulfillment System.
+
+#### Process the information to the Fulfillment System
+
+1. Validation Check. This process undergoes null or empty validations. 
+    Checks for empty OrderIds
+    Checks for empty orders
+    Checks for empty shipping and billing addresses
+    Checks if the order items exist in Inventory table
+    
+2. Inventory Check - This process checks if there is enough quantity. If there is not enough quantity, the order will be rejected.
+
+3.  Container Processing - This process calculates the weight and other dimensions of the orders to determine the correct shipping container.
+
+4. Mail Carrier Service - This process determines the type of mail service to use whether via USPS, UPS, priority mail, express mail, etc.
+
+5. Jobbing Process - This will process the job orders. It will also generate the mailing labels, assign tracking numbers and calculate shipping cost.
+
+6.  Print Packing Slip – This process will generate and print the packing slip.
 
 ## Personnel requirements
 
-*In this section you may want to describe the composition of the team, do you need dedicated development?  how many people?  How about design or QA?  Think about what personnel is required to make this project a success, and place your recommendations here.*
+A team of a project lead, a senior developer and 2 junior developers will be recommended for the project to handle the design, prototyping, development, QA, documentation and deployment.
 
 ## Delivery schedule
 
-*It's often helpful to break a project out into phases or milestones.  In this section list out any logical checkpoints where you would like to see the project demonstrated to ensure that expectations are being met.  Describe the phase, and the functional requirements required for completion.*
+Phase 1 – This is the Import phase. A project will be developed whose objective is to import files from Client's site via FTP and import them to our system. This process involves extracting the zip files, reading and transfering data to the various tables such as Orders, Inventory, Address, etc. in our local databases. Phase 1 is expected to be delivered in one month.
+
+Phase 2 – This is the Validation phase of the Fulfillment System. It will read data from the various tables and undergo the process of validation by checking for empty or null values. Phase 2 is expected to be delivered in 2 weeks.
+
+Phase 3 – This is the Inventory phase of the Fulfillment System. It first checks the inventory of all the items. If there is enough inventory, the fulfillment process will continue. Otherwise, the system will reject the orders. Phase 3 is expected to be delivered in one month.
+
+Phase 4 -  This is the Container phase of the Fulfillment System. The system calculates the dimensions and weight of the orders to determine the correct box size for shipping. Phase 4 is expected to be delivered in one month.
+
+Phase 5 – This is the Mailing phase of the Fulfillment System. The system will provide the best shipping option for a particular order, whether sent locally or international. Phase 5 is expected to be delivered in 1.5 months.
+
+Phase 6 – This is the Jobbing phase of the Fulfillment System. The system will provide the list of items, quantity to pull out from the warehouse. The system will also generate the mailing labels, assign tracking numbers and calculate shipping costs. Finally, printing of the packing slip is processed here. Phase 6 is expected to be delivered in 1.5 months.
+
+Phase 7 – This is the testing phase. Testing is expected to be completed in 3 weeks.
+
+Phase 8 – This will be the deployment phase. 
 
 ## Other requirements
 
-*This section serves as a catch-all for any details that may not fit in other areas.  things like device or browser support, considerations for accessibility or inspiration for style.  Offer additional context here to ensure the project meets your vision*
 
 ## Assumptions
 
-*Oftentimes we are reliant on outside sources such as frameworks to be used, or services that our system will depend on.  In this section you should provide detail on any assumptions that you have made, such as the system being reliant on the availability of the Google Maps API.*
+The system will be reliant on the availability of USPS API and UPS API for mailing services. It is also reliant on inventory of materials.
 
 ## Limitations
 
-*Identify any limitations in terms of time, personnel, technical details, or other things that limit the scope, time, and cost of the project being discussed.*
+Processing of customer returns is not included in the scope of the project.
 
 ## Risks
 
-*Every project has inherent risks that may cause delay or even failure of a project.  You must identify this risks to show you know what they are, and also identify ways in which you would mitigate those risks.*
+Personnel retention and experience is seen as a risk that may cause delay or failure of the project.  
